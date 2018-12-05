@@ -7,6 +7,8 @@
 #include<climits>
 #include<cstring> //for the strlen() function
 #include<string>
+#include "unknownBugs.cpp"
+#include "pointer_L.cpp"
 
 #define ZERO 0; //makes zero symbol for 0 value
 
@@ -16,8 +18,6 @@ struct inflatable //structure declaration
 	float volumn;
 	double price;
 };
-
-
 
 void dIsplayname();//function prototype for simon()
 void q2();
@@ -34,6 +34,7 @@ void instr2();
 void instr3();
 void numstr();
 void structur();
+
 
 int main()
 {
@@ -52,7 +53,9 @@ int main()
 	//instr2();
 	//instr3();
 	//numstr();
-	structur();
+	//structur();
+	//strtype3();
+	pointerl();
 }
 
 void dIsplayname() {

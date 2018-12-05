@@ -26,5 +26,11 @@
     <ClCompile Include="myfirstC.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="unknownBugs.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="pointer_L.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

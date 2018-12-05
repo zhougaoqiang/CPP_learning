@@ -1,6 +1,7 @@
 ﻿  myfirstC.cpp
-c:\users\zhou&wan\desktop\c++\myfirstc\myfirstc\myfirstc.cpp(174): warning C4305: “初始化”: 从“double”到“float”截断
-c:\users\zhou&wan\desktop\c++\myfirstc\myfirstc\myfirstc.cpp(192): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
-c:\users\zhou&wan\desktop\c++\myfirstc\myfirstc\myfirstc.cpp(276): warning C4305: “初始化”: 从“double”到“float”截断
-c:\users\zhou&wan\desktop\c++\myfirstc\myfirstc\myfirstc.cpp(282): warning C4305: “初始化”: 从“double”到“float”截断
-  myfirstC.vcxproj -> C:\Users\Zhou&Wan\Desktop\C++\myfirstC\Debug\myfirstC.exe
+c:\users\zhou&wan\desktop\c++\myfirstc\myfirstc\myfirstc.cpp(179): warning C4305: “初始化”: 从“double”到“float”截断
+c:\users\zhou&wan\desktop\c++\myfirstc\myfirstc\myfirstc.cpp(197): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
+c:\users\zhou&wan\desktop\c++\myfirstc\myfirstc\myfirstc.cpp(281): warning C4305: “初始化”: 从“double”到“float”截断
+c:\users\zhou&wan\desktop\c++\myfirstc\myfirstc\myfirstc.cpp(287): warning C4305: “初始化”: 从“double”到“float”截断
+pointer_L.obj : error LNK2005: "void __cdecl pointerl(void)" (?pointerl@@YAXXZ) 已经在 myfirstC.obj 中定义
+C:\Users\Zhou&Wan\Desktop\C++\myfirstC\Debug\myfirstC.exe : fatal error LNK1169: 找到一个或多个多重定义的符号
