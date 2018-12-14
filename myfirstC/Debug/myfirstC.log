@@ -1,13 +1,3 @@
-﻿  myfirstC.cpp
-c:\users\zhou&wan\desktop\c++\myfirstc\myfirstc\myfirstc.cpp(10): warning C4067: 预处理器指令后有意外标记 - 应输入换行符
-c:\users\zhou&wan\desktop\c++\myfirstc\myfirstc\myfirstc.cpp(11): warning C4067: 预处理器指令后有意外标记 - 应输入换行符
-c:\users\zhou&wan\desktop\c++\myfirstc\myfirstc\myfirstc.cpp(12): warning C4067: 预处理器指令后有意外标记 - 应输入换行符
-c:\users\zhou&wan\desktop\c++\myfirstc\myfirstc\myfirstc.cpp(13): warning C4067: 预处理器指令后有意外标记 - 应输入换行符
-c:\users\zhou&wan\desktop\c++\myfirstc\myfirstc\myfirstc.cpp(14): warning C4067: 预处理器指令后有意外标记 - 应输入换行符
-c:\users\zhou&wan\desktop\c++\myfirstc\myfirstc\myfirstc.cpp(15): warning C4067: 预处理器指令后有意外标记 - 应输入换行符
-c:\users\zhou&wan\desktop\c++\myfirstc\myfirstc\myfirstc.cpp(236): warning C4305: “初始化”: 从“double”到“float”截断
-c:\users\zhou&wan\desktop\c++\myfirstc\myfirstc\myfirstc.cpp(254): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
-c:\users\zhou&wan\desktop\c++\myfirstc\myfirstc\myfirstc.cpp(338): warning C4305: “初始化”: 从“double”到“float”截断
-c:\users\zhou&wan\desktop\c++\myfirstc\myfirstc\myfirstc.cpp(344): warning C4305: “初始化”: 从“double”到“float”截断
-c:\users\zhou&wan\desktop\c++\myfirstc\myfirstc\myfirstc.cpp(563): warning C4244: “初始化”: 从“float”转换到“clock_t”，可能丢失数据
+﻿  Section7-9.cpp
+c:\users\zhou&wan\desktop\c++\myfirstc\myfirstc\section7-9.cpp(106): warning C4244: “参数”: 从“double”转换到“unsigned int”，可能丢失数据
   myfirstC.vcxproj -> C:\Users\Zhou&Wan\Desktop\C++\myfirstC\Debug\myfirstC.exe

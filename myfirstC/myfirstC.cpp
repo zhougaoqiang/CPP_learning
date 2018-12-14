@@ -73,6 +73,7 @@ void cingolf();
 void outfile();
 void sumafile();
 
+/*
 int main()
 {
 
@@ -116,7 +117,7 @@ int main()
 	//outfile();
 	sumafile();
 }
-
+*/
 void dIsplayname() {
 	std::cout << "zhou gaoqiang， " << "at Sim Ming Ave." << std::endl;
 }

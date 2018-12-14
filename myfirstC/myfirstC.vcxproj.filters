@@ -26,5 +26,8 @@
     <ClCompile Include="myfirstC.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="Section7-9.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
