@@ -22,12 +22,13 @@ void strcount(const char * str);
 
 void newplace();
 
+/*
 int main() {
 	// twofile1();
 	//statictest();
 	newplace();
 }
-
+*/
 void twofile1() {
 	using std::cout;
 
