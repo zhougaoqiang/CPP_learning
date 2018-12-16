@@ -152,8 +152,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
+    <ClInclude Include="coordin.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="external.cpp" />
+    <ClCompile Include="file2.cpp" />
     <ClCompile Include="myfirstC.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -162,6 +165,10 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="Section7-9.cpp" />
+    <ClCompile Include="file1.cpp" />
+    <ClCompile Include="support.cpp" />
+    <ClCompile Include="twofile1.cpp" />
+    <ClCompile Include="twofile2.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

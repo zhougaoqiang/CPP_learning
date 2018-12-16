@@ -3,6 +3,8 @@
 #include<cmath>
 #include<array>
 #include <string>
+#include <cstdlib>
+#include <fstream>
 
 using namespace std;
 
@@ -18,6 +20,14 @@ struct polar {
 struct rect {
 	double x;
 	double y;
+};
+
+struct free_throws
+{
+	string name;
+	int made;
+	int attempts;
+	float percent;
 };
 
 //note: some implementations require double instead of long double 
@@ -77,7 +87,38 @@ const double * f1(const double ar[], int n);
 const double * f2(const double [], int);
 const double * f3(const double *, int);
 
+void inline1();
+inline double square(double x) { return x * x; }
 
+void sceref();
+
+void swaps();
+void swapr(int &a, int &b);
+void swapp(int *p, int *q);
+void swapv(int a, int b);
+
+void cubes();
+double cube(double a);
+double refcuble(const double &ra);
+
+void strtef();
+void display2(const free_throws &ft);
+void set_pc(free_throws &ft);
+free_throws &accumlate(free_throws &target, const free_throws &source);
+
+void filefunc();
+void file_it(ostream &os, double fo, const double fe[], int n);
+
+void leftover();
+unsigned long left(unsigned long num, unsigned ct);
+char * left(const char *str, int n = 1);
+
+void funtemp();
+template <typename T>	//or class T
+void swaptemplate(T &a, T &b);
+
+
+/*
 int main() 
 {
 	//lotto();
@@ -93,7 +134,16 @@ int main()
 	//ruler();
 	//fun_ptr();
 	//arfupt();
+	//inline1();
+	//sceref();
+	//swaps();
+	//cubes();
+	//strtef();
+	//filefunc();
+	//leftover();
+	funtemp();
 }
+*/
 
 void lotto() {
 	
@@ -472,3 +522,262 @@ const double * f2(const double ar[], int) {
 const double * f3(const double ar[], int){
 	return ar + 2;
 }
+
+void inline1() {
+	double a, b;
+
+	double c = 13.0;
+	a = square(5.0);
+	b = square(4.5 + 7.5);  //can pass expressions
+	cout << "a = " << a << ", b = " << b << "\n";
+	cout << "c= " << c;
+	cout << ", c squared = " << square(c++) << "\n";
+	cout << "Now c = " << c << "\n";
+}
+
+void sceref() {
+	int rats = 101;
+	int & rodents = rats; //rodents is a reference
+
+	cout << "rats = " << rats;
+	cout << ", rodents = " << rodents << endl;
+
+	cout << "rats address = " << &rats;
+	cout << "rodents address = " << &rodents << endl;
+
+	int bunnies = 50;
+	rodents = bunnies;			//can we change the reference?
+	cout << "bunnies = " << bunnies;
+	cout << ", rats = " << rats;
+	cout << ", rodents = " << rodents << endl;
+
+	cout << "bunnies address = " << &bunnies;
+	cout << ", rodents address = " << &rodents << endl;
+}
+
+void swaps() {
+	int wallet1 = 300;
+	int wallet2 = 350;
+
+	cout << "wallet1 = $" << wallet1;
+	cout << "wallet2 = $" << wallet2<<endl;
+
+	cout << "Using referenece to swap contents: \n";
+	swapr(wallet1, wallet2);	//pass variables
+	cout << "wallet1 = $" << wallet1;
+	cout << "wallet2 = $" << wallet2 << endl;
+
+	cout << "Using pointer to swap contents: \n";
+	swapp(&wallet1, &wallet2);	//pass variables
+	cout << "wallet1 = $" << wallet1;
+	cout << "wallet2 = $" << wallet2 << endl;
+
+	cout << "Tring to use passing by value: \n";
+	swapv(wallet1, wallet2);	//pass variables
+	cout << "wallet1 = $" << wallet1;
+	cout << "wallet2 = $" << wallet2 << endl;
+
+}
+void swapr(int &a, int &b) {		//use reference are able to swap. 为什么能传递是因为用地址来传递的
+	int temp;
+	temp = a;
+	a = b;
+	b = temp;
+}
+void swapp(int *p, int *q) {	//use pointer are able to swap
+	int temp;
+	temp = *p;
+	*p = *q;
+	*q = temp;
+}
+void swapv(int a, int b) {	//direct pass value are unable to swap
+	int temp;
+	temp = a;
+	a = b;
+	b = temp;
+}
+
+void cubes() {
+	double x = 3.0;
+	
+	cout << cube(x);
+	cout << " = cube of " << x << endl;
+	cout << refcuble(x);
+	cout << " = cube of " << x << endl;
+}
+double cube(double a) {
+	a *= a * a;
+	return a;
+}
+double refcuble(const double &ra) {
+	return ra*ra*ra;
+}
+
+void strtef() {
+	//partial initialization - ramaining members set to 0;
+	free_throws one = { "Ifelsa Brance", 13, 14 };
+	free_throws two = { "Andor knott", 10, 16 };
+	free_throws three = { "zhou", 7, 9 };
+	free_throws four = { "gao", 5, 9 };
+	free_throws five = { "qiang", 6, 14 };
+	free_throws team = { "wan", 0, 0 };
+	// no initialization 
+	free_throws dup;
+
+	set_pc(one);
+	display2(one);
+	accumlate(team, one);
+	display2(team);
+
+	//use return value as argument
+	display2(accumlate(team, two));
+	accumlate(accumlate(team, three), four);
+	display2(team);
+
+	//use return value in assignment
+	dup = accumlate(team, five);
+
+	cout << "Display team: \n";
+	display2(team);
+	cout << "Display dup after assignment: \n";
+	display2(dup);
+	set_pc(four);
+
+	//ill-advised assignment
+	accumlate(dup, five) = four;
+	cout << "Display dup after ill-advised assignment: \n";
+	display2(dup);
+}
+void display2(const free_throws &ft) {
+	cout << "Name: " << ft.name << endl;
+	cout << "  Made: " << ft.made << '\t';
+	cout << "Attempts: " << ft.attempts << '\t';
+	cout << "Percent: " << ft.percent << '\n';
+}
+void set_pc(free_throws &ft) {
+	if (ft.attempts != 0)
+		ft.percent = 100.0f*float(ft.made) / float(ft.attempts);
+	else
+		ft.percent = 0;
+}
+free_throws &accumlate(free_throws &target, const free_throws &source) {
+	target.attempts += source.attempts;
+	target.made += source.made;
+	set_pc(target);		//添加percents值
+	return target;
+}
+
+void filefunc() {
+	const int LIMIT = 5;
+	ofstream fout;
+	const char *fn = "ep-data.txt";
+	fout.open(fn);
+	if (!fout.is_open()) {
+		cout << "can't open" << fn << ". Bye.\n";
+		exit(EXIT_FAILURE);
+	}
+
+	double objective;
+	cout << "Enter the focal lenght of your telescope objective in mm: ";
+	cin >> objective;
+	double eps[LIMIT];
+	cout << "Enter the focal lengths, in mm, of " << LIMIT
+		<< "eyepiece: \n";
+	for (int i = 0; i < LIMIT; i++) {
+		cout << "Eyepiece #" << i + 1 << ": ";
+		cin >> eps[i];
+	}
+	file_it(fout, objective, eps, LIMIT);
+	file_it(cout, objective, eps, LIMIT);
+	cout << "Done\n";
+
+}
+void file_it(ostream &os, double fo, const double fe[], int n) {
+	ios_base::fmtflags initial;
+	initial = os.setf(ios_base::fixed);   //save initial formatting statet
+	os.precision(0);
+	os << "Focal length of objective: " << fo << "mm\n";
+	os.setf(ios::showpoint);
+	os.precision(1);
+	os.width(12);
+	os << "f.l. eyepiece ";
+	os.width(15);
+	os << "magnification" << endl;
+	for (int i = 0; i < n; i++) {
+		os.width(12);
+		os << fe[i];
+		os.width(15);
+		os << int(fo / fe[i] + 0.5) << endl;
+	}
+	os.setf(initial);		//restore initial formatting state
+}
+
+void leftover() {
+	const char * trip = "Hawaii!!"; //test value
+	unsigned long n = 12345678; //test value
+	int i;
+	char *temp;
+
+	for (i = 1; i < 10; i++) {
+		cout << left(n, i) << endl;
+		temp = left(trip, i);
+		cout << temp << endl;
+		delete[] temp; //point to temporary storage
+	}
+}
+unsigned long left(unsigned long num, unsigned ct) {//this function returns the first ct digits of the number num.
+	unsigned digits = 1;
+	unsigned long n = num;
+
+	if (ct == 0 || num == 0)
+		return 0;	 //return 0 if no digits
+	while (n /= 10)
+		digits++;
+	if (digits > ct)
+	{
+		ct = digits - ct;
+		while (ct--)
+			num /= 10;
+		return num; //return left ct digits
+	}
+	else     //if ct >= number of digits
+		return num;		//return the whole number
+}
+char * left(const char *str, int n) {
+	//this function returns a pointer to a new string
+	//consisting of the first n characters in the str string.
+	if (n < 0)
+		n = 0;
+	char * p = new char[n + 1];
+	int i;
+	for (i = 0; i < n&&str[i]; i++)
+		p[i] = str[i];  //copy character
+	while (i <= n)
+		p[i++] = '\0';  //set rest of string to '\0'
+	
+	return p;
+}
+
+void funtemp() {
+	int i = 10;
+	int j = 20;
+	cout << "i, j =" << i << ", " << j << endl;
+	cout << "Using compiler-generated int swapper: \n";
+	swaptemplate(i, j);    //generates void swaptemplate(int &, int &)
+	cout << "Now i, j = " << i << ", " << j << endl;
+
+	double x = 10;
+	double y = 20;
+	cout << "x, y =" << x << ", " << y << endl;
+	cout << "Using compiler-generated int swapper: \n";
+	swaptemplate(x, y);    //generates void swaptemplate(int &, int &)
+	cout << "Now x, y = " << x << ", " << y << endl;
+}
+template <typename T>	//or class T
+void swaptemplate(T &a, T &b) {
+	T temp;  //temp a variable of type T
+	temp = a;
+	a = b;
+	b = temp;
+}
+
